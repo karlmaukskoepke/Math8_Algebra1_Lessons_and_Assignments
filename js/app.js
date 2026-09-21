@@ -124,8 +124,14 @@
     for (var i = 0; i < days.length; i++) if (days[i].status === status) return days[i];
     return null;
   }
+  function lastPast() {
+    var days = S.lessons ? S.lessons.days : [];
+    for (var i = days.length - 1; i >= 0; i--) if (days[i].status === 'past') return days[i];
+    return null;
+  }
+  // Opens on today's lesson. On a non-school day, opens on the most recent class day instead.
   function defaultDate() {
-    var d = firstWithStatus('today') || firstWithStatus('next');
+    var d = firstWithStatus('today') || lastPast() || firstWithStatus('next');
     if (d) return d.date;
     var days = S.lessons.days;
     return days.length ? days[days.length - 1].date : null;
@@ -151,6 +157,7 @@
 
   // ---------- rendering: day strip ----------
   function statusLabel(d) {
+    if (d.status === 'past' && !firstWithStatus('today') && d === lastPast()) return 'Last class day';
     return d.status === 'today' ? 'Today' : d.status === 'next' ? 'Next class day' : d.status === 'past' ? 'Past lesson' : 'Coming up';
   }
   function tile(d) {
