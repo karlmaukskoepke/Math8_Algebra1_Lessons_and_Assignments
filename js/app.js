@@ -69,7 +69,7 @@
   function unlockText(iso) {
     try {
       return new Date(iso).toLocaleString('en-US', { weekday: 'short', month: 'short', day: 'numeric', hour: 'numeric', minute: '2-digit', timeZone: TZ });
-    } catch (e) { return 'tomorrow morning'; }
+    } catch (e) { return 'at 2:40pm'; }
   }
 
   // ---------- theme ----------

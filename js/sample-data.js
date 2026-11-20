@@ -41,8 +41,8 @@
       var quiz = (i % 6 === 4) || status === 'upcomingQuiz';
       var title = topics[i % topics.length] + (quiz ? ' QUIZ' : '');
       var hasKeys = status === 'past' ? (i % 2 === 0) : (status === 'today' || status === 'next');
-      var released = status === 'past';
-      var release = new Date(dt.getFullYear(), dt.getMonth(), dt.getDate() + 1, 12, 0, 0);   // about 8am ET
+      var release = new Date(dt.getFullYear(), dt.getMonth(), dt.getDate(), 14, 40, 0);   // 2:40pm the same day
+      var released = now.getTime() >= release.getTime();
       days.push({
         date: k,
         letterDay: LETTERS[i % 6],

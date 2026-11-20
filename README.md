@@ -20,6 +20,6 @@ Repo -> Settings -> Pages -> Deploy from a branch -> `main` / root. The site app
 `https://<username>.github.io/<repo-name>/`.
 
 ## Notes
-- Answer-key timing, weekend hiding, and Teacher Notes are all enforced by the Apps Script backend, not by this site.
+- Answer keys unlock at 2:40pm (New York) on the lesson's own date. That timing, weekend hiding, and Teacher Notes are all enforced by the Apps Script backend, not by this site.
 - Each browser keeps its last good copy of the lessons, so a slow or failed request never leaves a blank page.
 - Adding a class later: copy `algebra1.html`, change `data-class`, the names, and add a color block in `site.css`, plus an entry in the backend `CLASSES`.
